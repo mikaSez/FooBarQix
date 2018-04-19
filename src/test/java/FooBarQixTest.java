@@ -1,8 +1,6 @@
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FooBarQixTest {
 
@@ -16,4 +14,13 @@ public class FooBarQixTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @Test
+    public void should_write_bar_if_number_can_be_divided_by_5(){
+        //ARRANGE
+        String expected = "Bar";
+        //ACT
+        String result = FooBarQix.compute(5);
+        //ASSERT
+        assertThat(result).isEqualTo(expected);
+    }
 }

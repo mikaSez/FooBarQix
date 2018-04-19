@@ -4,6 +4,10 @@ public class FooBarQix {
         if(number % 3 == 0){
             return "Foo";
         }
+        if (number % 5 == 0){
+            return "Bar";
+        }
         return "";
     }
+
 }

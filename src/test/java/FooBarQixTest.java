@@ -19,7 +19,7 @@ public class FooBarQixTest {
         //ARRANGE
         String expected = "Bar";
         //ACT
-        String result = FooBarQix.compute(5);
+        String result = FooBarQix.compute(10);
         //ASSERT
         assertThat(result).isEqualTo(expected);
     }
@@ -44,4 +44,17 @@ public class FooBarQixTest {
 
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    public void should_write_FooBarBar_if_number_can_be_divided_by_3_and_5_and_contains_5(){
+        //ARRANGE
+        String expected = "FooBarBar";
+        //ACT
+        String result = FooBarQix.compute(15);
+        //ASSERT
+
+        assertThat(result).isEqualTo(expected);
+    }
+
+
 }

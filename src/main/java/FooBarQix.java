@@ -2,6 +2,16 @@ public class FooBarQix {
 
     public static String compute(int number){
         StringBuilder builder = new StringBuilder();
+        divideAppender(number, builder);
+        String s = String.valueOf(number);
+        if(s.contains("5")){
+            builder.append("Bar");
+        }
+        return builder.toString();
+    }
+
+
+    private static void divideAppender(int number, StringBuilder builder) {
         if(number % 3 == 0){
             builder.append("Foo");
         }
@@ -11,7 +21,6 @@ public class FooBarQix {
         if(number % 7 == 0){
             builder.append("Qix");
         }
-        return builder.toString();
     }
 
 }

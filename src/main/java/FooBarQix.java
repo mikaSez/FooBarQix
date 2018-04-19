@@ -1,16 +1,17 @@
 public class FooBarQix {
 
     public static String compute(int number){
+        StringBuilder builder = new StringBuilder();
         if(number % 3 == 0){
-            return "Foo";
+            builder.append("Foo");
         }
         if (number % 5 == 0){
-            return "Bar";
+            builder.append("Bar");
         }
         if(number % 7 == 0){
-            return "Qix";
+            builder.append("Qix");
         }
-        return "";
+        return builder.toString();
     }
 
 }

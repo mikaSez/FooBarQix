@@ -33,4 +33,15 @@ public class FooBarQixTest {
         //ASSERT
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    public void should_write_FooQix_if_number_can_be_divided_by_3_and_7(){
+        //ARRANGE
+        String expected = "FooQix";
+        //ACT
+        String result = FooBarQix.compute(21);
+        //ASSERT
+
+        assertThat(result).isEqualTo(expected);
+    }
 }

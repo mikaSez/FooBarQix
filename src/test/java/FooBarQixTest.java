@@ -23,4 +23,14 @@ public class FooBarQixTest {
         //ASSERT
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    public void should_write_bar_if_number_can_be_divided_by_7(){
+        //ARRANGE
+        String expected = "Qix";
+        //ACT
+        String result = FooBarQix.compute(7);
+        //ASSERT
+        assertThat(result).isEqualTo(expected);
+    }
 }

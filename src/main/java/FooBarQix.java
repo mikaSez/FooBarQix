@@ -12,7 +12,7 @@ public class FooBarQix {
 
 
     private static void divideAppender(int number, StringBuilder builder) {
-        if(number % 3 == 0){
+        if(isDivisibleBy(number, 3)){
             builder.append("Foo");
         }
         if (number % 5 == 0){
@@ -21,6 +21,10 @@ public class FooBarQix {
         if(number % 7 == 0){
             builder.append("Qix");
         }
+    }
+
+    private static boolean isDivisibleBy(int dividend, int divider) {
+        return (dividend % divider == 0);
     }
 
 }

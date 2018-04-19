@@ -1,59 +1,47 @@
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(Parameterized.class)
 public class FooBarQixTest {
 
-    @Test
-    public void should_write_foo_if_number_can_be_divided_by_3(){
-        //ARRANGE
-        String expected = "Foo";
-        //ACT
-        String result = FooBarQix.compute(3);
-        //ASSERT
-        assertThat(result).isEqualTo(expected);
+    @Parameterized.Parameters
+    public static Collection<Object[]> params() {
+        return Arrays.asList(
+                new Object[]{"FooFoo", 3},
+                new Object[]{"Bar", 10},
+                new Object[]{"QixQix", 7},
+                new Object[]{"BarBar", 5},
+                new Object[]{"FooQix", 21},
+                new Object[]{"FooBarBar", 15},
+                new Object[]{"FooBarQixBar", 105},
+                new Object[]{"Qix", 14},
+                new Object[]{"Foo", 9},
+                new Object[]{"FooFooFoo", 33},
+                new Object[]{"BarBarBar", 55},
+                new Object[]{"QixQixQix", 77}
+
+        );
     }
 
-    @Test
-    public void should_write_bar_if_number_can_be_divided_by_5(){
-        //ARRANGE
-        String expected = "Bar";
-        //ACT
-        String result = FooBarQix.compute(10);
-        //ASSERT
-        assertThat(result).isEqualTo(expected);
+    private final String expectedResult;
+    private final int inputNumber;
+
+    public FooBarQixTest(final String expectedResult, final int inputNumber) {
+        this.expectedResult = expectedResult;
+        this.inputNumber = inputNumber;
     }
 
-    @Test
-    public void should_write_bar_if_number_can_be_divided_by_7(){
-        //ARRANGE
-        String expected = "Qix";
-        //ACT
-        String result = FooBarQix.compute(7);
-        //ASSERT
-        assertThat(result).isEqualTo(expected);
-    }
 
     @Test
-    public void should_write_FooQix_if_number_can_be_divided_by_3_and_7(){
-        //ARRANGE
-        String expected = "FooQix";
-        //ACT
-        String result = FooBarQix.compute(21);
-        //ASSERT
-
-        assertThat(result).isEqualTo(expected);
-    }
-
-    @Test
-    public void should_write_FooBarBar_if_number_can_be_divided_by_3_and_5_and_contains_5(){
-        //ARRANGE
-        String expected = "FooBarBar";
-        //ACT
-        String result = FooBarQix.compute(15);
-        //ASSERT
-
-        assertThat(result).isEqualTo(expected);
+    public void isComputingCorrectlyTest() {
+        final String result = FooBarQix.compute(inputNumber);
+        assertThat(result).isEqualTo(expectedResult);
     }
 
 
